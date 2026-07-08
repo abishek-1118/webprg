@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Form Creation</title>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form onsubmit="return alert_msg()">
+Name: 
+<input type="text" id="name"><br><br>
+Gender:
+<input type="radio" name="gender" value="Male">Male
+<input type="radio" name="gender" value="Female">Female<br><br>
+Email:
+ <input type="text" id="email"><br><br>
+Mobile No:
+ <input type="text" id="phone_number"><br><br>
+Password:
+ <input type="password" id="password"><br><br>
+
+<input type="submit" value="Register">
+</form>
+
+<p id="demo"> welcome </p>
+<button onclick="changeText()">change Text</button><br><br>
+
+<script>
+function alert_msg() {
+if (document.getElementById("name").value == "") {
+alert("Enter your name!");
+return false;
+    }
+let em = document.getElementById("email").value;
+let emailpattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+if (em == "" || !emailpattern.test(em)) {
+alert("Enter valid email!");
+return false;
+    }
+let mobile = document.getElementById("phone_number").value;
+let mobilepattern =/^(?:\+91|91|0)?[6-9]\d{9}$/;
+if (mobile == "" || !mobilepattern.test(mobile)) {
+alert("Enter valid phone number!");
+return false;
+    }
+let pass=document.getElementById("password").value
+if ( pass=="" || pass.lenght!=8)
+ {
+alert("Enter your password!");
+return false;
+    }
+alert("You have entered all the details.");
+return true;
+}
+
+function changeText()
+{
+document.getElementById("demo").style.color="red"
+document.getElementById("demo").style.fontSize="30px";
+document.getElementById("demo").inner.HTML="Welcome to Computer Technology";
+}
+</script>
+
+</body>
+</html>
